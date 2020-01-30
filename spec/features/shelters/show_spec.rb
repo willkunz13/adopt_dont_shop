@@ -21,5 +21,17 @@ address: "somewhere", city: "Boise", state: "ID", zip: "404")
                 expect(page).to have_content(shelter_2.city)
                 expect(page).to have_content(shelter_2.state)
         end
+
+	it "can delele a shelter" do
+                shelter_1 = Shelter.create(name: "helter_shelter",\
+address: "nowhere", city: "Detroit", state: "MI", zip: "313")
+                shelter_2 = Shelter.create(name: "shelter B",\
+address: "somewhere", city: "Boise", state: "ID", zip: "404")
+		
+		visit "/shelters/#{shelter_1.id}"
+	
+		click_button "delete"
+		expect(page).to_not have_content(shelter_1.name)
+	end
 end
 
