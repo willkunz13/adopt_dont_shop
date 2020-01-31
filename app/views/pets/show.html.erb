@@ -1,0 +1,7 @@
+<h1><%= @pet.name %></h1>
+        <%= image_tag(@pet.image, size: "160x100") %>
+        <p> Age: <%= @pet.approximate_age %></p>
+        <p> Sex: <%= @pet.sex %></p>
+        <p> Description: <%= @pet.description %></p>
+        <p> Adopt Status: <%= @pet.adopt_status %></p>
+        <p> Shelter Name: <%= label_tag @pet.shelter.name %></p>
