@@ -1,8 +1,12 @@
-<h1><%= @pets.first.shelter_id %> </h1>
+<h1><%= @shelter.name %> </h1>
 
-<% @pets.each do |pet| %>
+<% @shelter.pets.each do |pet| %>
         <h2><%= pet.name %></h2>
         <%= image_tag(pet.image, size: "100x100") %>
         <p> Age: <%= pet.approximate_age %></p>
+        <p> Description: <%= pet.description %></p>
         <p> Sex: <%= pet.sex %></p>
+        <p> Adoption Status: <%= pet.adopt_status %></p>
 <% end %>
+<%= link_to "Create Pet", "/shelters/#{@shelter.id}/pets/new" %>
+
