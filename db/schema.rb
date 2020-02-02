@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20200131013605) do
     t.integer "approximate_age"
     t.string "sex"
     t.string "description"
-    t.string "adopt_status"
+    t.boolean "adopt_status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "shelter_id"

@@ -6,7 +6,7 @@ class CreatePets < ActiveRecord::Migration[5.1]
       t.integer :approximate_age
       t.string :sex
 	t.string :description
-	t.string :adopt_status
+	t.boolean :adopt_status, default: false 
 	t.timestamps
     end
   end
