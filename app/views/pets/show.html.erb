@@ -4,7 +4,7 @@
         <p> Sex: <%= @pet.sex %></p>
         <p> Description: <%= @pet.description %></p>
         <p> Adopt Status: <%= @pet.adopt_status %></p>
-        <p> Shelter Name: <%= label_tag @pet.shelter.name %></p>
+	<p> Shelter Name: <%= link_to @pet.shelter.name, "/shelters/#{@pet.shelter.id}" %></p>
 	<%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
 	<%= form_tag "/pets/#{@pet.id}", method: :delete do %>
 		<%= submit_tag 'Delete Pet' %> 

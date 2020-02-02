@@ -1,12 +1,18 @@
 <h1><%= @shelter.name %> </h1>
 
 <% @shelter.pets.each do |pet| %>
-        <h2><%= pet.name %></h2>
-        <%= image_tag(pet.image, size: "100x100") %>
-        <p> Age: <%= pet.approximate_age %></p>
-        <p> Description: <%= pet.description %></p>
-        <p> Sex: <%= pet.sex %></p>
-        <p> Adoption Status: <%= pet.adopt_status %></p>
+	<section class="pet-<%= pet.id %>">
+	        <h2><%= link_to pet.name, "/pets/#{pet.id}" %></h2>
+	        <%= image_tag(pet.image, size: "100x100") %>
+	        <p> Age: <%= pet.approximate_age %></p>
+	        <p> Description: <%= pet.description %></p>
+	        <p> Sex: <%= pet.sex %></p>
+	        <p> Adoption Status: <%= pet.adopt_status %></p>
+		<%= link_to 'Edit', "/pets/#{pet.id}/edit" %>
+		<%= form_tag "/pets/#{pet.id}", method: :delete do %>
+                	<%= submit_tag 'Delete' %>
+                <% end %>
+	</section>
 <% end %>
 <%= link_to "Create Pet", "/shelters/#{@shelter.id}/pets/new" %>
 
